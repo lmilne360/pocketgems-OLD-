@@ -1,42 +1,43 @@
 #sidebar {
-	width: 500px;
 	position: fixed;
-	left: 0;
 	top: 0;
+	left: 0;
+
+	width: 575px;
 	height: 100%;
-	background-image: url(map.png);
+
+	background-image: url("map.png");
 	background-size: cover;
 
 	#logo {
-		width: auto;
 		position: absolute;
-		right: 3em;
 		top: 3em;
+		right: 3em;
+
+		width: auto;
 	}
 
 	.btn {
+		width: 95px;
 
-     color: #fff; 
-	 width: 95px;
+		color: #fff;
 	}
 
 	.btn.active {
-	  background: rgba(255, 255, 255, 0.4);
-
+		background: rgba(255, 255, 255, 0.2);
 	}
-
 
 	ul {
 		position: absolute;
-		list-style: none;
-		top: 380px;
+		top: 400px;
 		right: 0;
+
+		list-style: none;
 
 		li a {
 			display: block;
+
 			margin-bottom: 4px;
 		}
-		
 	}
-
 }
