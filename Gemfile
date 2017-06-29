@@ -23,6 +23,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Necesary for windows
+gem 'tzinfo-data', platforms: [:x64_mingw, :mingw, :mswin]
+
 # Added by Teachable: -----------
 gem 'gems'
 gem 'better_errors'
