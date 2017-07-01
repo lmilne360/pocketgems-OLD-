@@ -2,6 +2,25 @@
   margin-left: 575px;
 }
 
+.gem-data {
+  position:relative;
+  top: 25em;
+  left: 4em;
+  li {
+    list-style: none;
+    display: inline;
+  }
+  div {
+    display: inline;
+    cursor: pointer;
+  }
+  // place black star over current icon on hover
+  .fave-icon > span:hover:before{
+    content: "\2605";
+    position: absolute;
+  }
+}
+
 h1 {
   position: relative;
   top: 10em;

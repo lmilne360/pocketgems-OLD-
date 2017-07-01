@@ -7,12 +7,14 @@ class StaticPagesController < ApplicationController
   end
 
   def search
-    details = Gems.search(params["search-term"])
-    if details.first["name"] == params['search-term']
-      @gem = details.first
+    details = Gems.search(params["search-term"]).first.with_indifferent_access
+
+    if details["name"].downcase == params['search-term'].downcase
+      @gem = details
     else
       @gem = nil
     end
+    #binding.pry
     render :root
   end
 
