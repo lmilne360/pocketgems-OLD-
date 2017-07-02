@@ -7,20 +7,14 @@ class StaticPagesController < ApplicationController
   end
 
   def search
-    @gemsurl = "https://rubygems.org/gems/"
-    details = Gems.search(params["search-term"]).first.with_indifferent_access
-    dependencies = []
-    dependencies << details[:dependencies][:development]
-    dependencies << details[:dependencies][:runtime]
 
+    details = Gems.search(params["search-term"]).first.with_indifferent_access
     if details["name"].downcase == params['search-term'].downcase
-    @gem = details
-    @gem[:dependencies] = dependencies.flatten
-    binding.pry
+      @gem = GemService.new(details).create_gem
     else
       @gem = nil
     end
-    #binding.pry
+
     render :root
   end
 
