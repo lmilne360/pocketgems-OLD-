@@ -5,17 +5,6 @@ $(document).ready(function($) {
 
 });
 
-/**
-function checkNames(){
-  var gems = getGems();
-  debugger
-  gems.forEach(function(i){
-    if (i.name == item) item.addClass("fave");
-    console.log(i.name);
-});
-}
- */
-
 function selectPage() {
   //get the current URL
   var url = window.location.href;
@@ -69,4 +58,5 @@ function loadFavorites() {
   gems.forEach(function(item) {
     $('.favorite-gems ul').append(`<li> <a href=${item.url} target="_blank" >${item.name}</a> </li>`);
   });
+  console.log("Favorite gems loaded")
 }
