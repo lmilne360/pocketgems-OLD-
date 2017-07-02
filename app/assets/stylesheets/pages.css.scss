@@ -2,33 +2,46 @@
   margin-left: 575px;
 }
 
+.favorite-gems,
 .gem-data {
-  position:relative;
+  position: relative;
   top: 25em;
   left: 4em;
+
   li {
     list-style: none;
     //display: inline;
+    a:hover {
+      text-decoration: underline;
+    }
   }
+
   div.fave-icon {
     display: inline;
+    color: gainsboro;
     cursor: pointer;
+
+    &:hover {
+      color: royalblue;
+    }
+
+    &.fave {
+      color: royalblue;
+    }
   }
-  // place black star over current icon on hover
-  .fave-icon > span:hover:before{
-    content: "\2605";
-    position: absolute;
-  }
+}
+
+.favorite-gems li:before {
+  content: "\2605";
+  color: royalblue;
 }
 
 h1 {
   position: relative;
   top: 10em;
   left: 4em;
-
   margin: 0;
   padding: 10px;
-
   font-size: 24px;
   font-weight: bold;
 }
@@ -36,7 +49,6 @@ h1 {
 .input-group {
   top: 20em;
   left: 75px;
-
   width: 50%;
 
   .form-control {
@@ -52,7 +64,6 @@ h1 {
   .btn,
   .form-control {
     height: 70px;
-
     color: darkgrey;
     border-radius: 75px;
   }
@@ -61,7 +72,6 @@ h1 {
 
 .input-group .input-group-btn > .btn {
   left: -2px;
-
   border-left-width: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.00);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);

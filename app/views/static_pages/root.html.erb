@@ -16,9 +16,9 @@
 <div class="gem-data col-md-8">
   <% if !@gem.nil? %>
   <ul>
-    <li><%= @gem[:name] %>
-      <div class="fave-icon">
-        <span>&#9734</span>
+    <li><%= link_to @gem[:name], @gem[:project_uri], target: :_blank %>
+      <div class="fave-icon" onclick="addFave()" onload="checkNames()">
+        <span>&#x2605</span>
       </div>
     </li>
 

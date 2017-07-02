@@ -11,6 +11,7 @@ class StaticPagesController < ApplicationController
 
     if details["name"].downcase == params['search-term'].downcase
       @gem = details
+      #binding.pry
     else
       @gem = nil
     end
