@@ -5,7 +5,7 @@ $(document).ready(function($) {
 
 });
 
-
+/**
 function checkNames(){
   var gems = getGems();
   debugger
@@ -14,6 +14,7 @@ function checkNames(){
     console.log(i.name);
 });
 }
+ */
 
 function selectPage() {
   //get the current URL
@@ -30,9 +31,7 @@ function selectPage() {
   });
 }
 
-function addFave() {
-  var name = $('.gem-data a').text();
-  var url = $('.gem-data a').attr('href');
+function addFave(name, url) {
   var gem = {
     name: name,
     url: url
@@ -42,19 +41,17 @@ function addFave() {
 
 function addToStorage(gem) {
   var gems = getGems();
-  var included = false;
 
-  gems.forEach(function(item) {
-    if (item.name != gem.name) {
-      included = false;
-    } else {
-      return included = true;
-    }
-  });
+  function included(item) {
+    return item.name === gem.name;
+  }
 
-  if (!included) {
+
+  if (!gems.some(included)) {
     gems.push(gem);
     console.log(`added ${gem.name} to collection`);
+  } else {
+    console.log("Already part of your favorites");
   }
 
   //Save gem array to local storage
@@ -63,7 +60,7 @@ function addToStorage(gem) {
 
 function getGems() {
   // Get gems from local storage
-  gems = JSON.parse(localStorage.getItem("gems") || "[]");
+  var gems = JSON.parse(localStorage.getItem("gems") || "[]");
   return gems;
 }
 
