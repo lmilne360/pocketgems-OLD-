@@ -8,28 +8,17 @@
   </head>
   <body>
 
-    <div id="wrapper" class="visible">
+    <div id="wrapper">
 
       <!-- Sidebar -->
-      <div id="sidebar-wrapper">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xs-12">
-              <%= render 'partials/sidebar' %>
-            </div>
 
-          </div>
-
-        </div>
-
-      </div>
+            <%= render 'partials/sidebar' %>
 
       <!-- Page content -->
       <div id="page-wrapper">
         <div class="container-fluid">
           <div class="row">
             <div class="col-xs-12">
-              <a href="#" class="btn" id="sidebar-toggle">Toggle</a>
               <%= yield %>
             </div>
           </div>
@@ -37,15 +26,8 @@
       </div>
 
 
-    </div> <!-- wrapper -->
-
-    <script type="text/javascript">
-      $('#sidebar-toggle').click(function (e) {
-        console.log('clicked')
-        e.preventDefault()
-        $('#wrapper').toggleClass("visible")
-      });
-    </script>
+    </div>
+    <!-- wrapper -->
 
   </body>
 </html>

@@ -56,7 +56,7 @@ function getGems() {
 function loadFavorites() {
   var gems = getGems();
   gems.forEach(function(item) {
-    $('.favorite-gems ul').append(`<li> <a href=${item.url} target="_blank" >${item.name}</a> </li>`);
+    $('.favorite-gems ul').append(`<li class="col-md-4"> <a href=${item.url} target="_blank" >${item.name}</a> </li>`);
   });
   console.log("Favorite gems loaded")
 }

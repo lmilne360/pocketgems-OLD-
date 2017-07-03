@@ -27,7 +27,7 @@ def set_dependencies(data)
 end
 
 def create_gem
-  gem = GemModel.new(self.name, self.url, self.info, self.dependencies)
+ GemModel.new(self.name, self.url, self.info, self.dependencies)
 end
 
 end
