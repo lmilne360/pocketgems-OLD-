@@ -22,7 +22,9 @@ function selectPage() {
   });
 }
 
-function addFave(name, url) {
+function addFave(e,name,url) {
+  var dom = e.target.parentElement;
+  $(dom).addClass('fave');
   var gem = {
     name: name,
     url: url
@@ -37,20 +39,24 @@ function addToStorage(gem) {
     return item.name === gem.name;
   }
 
-
   if (!gems.some(included)) {
     gems.push(gem);
     console.log(`added ${gem.name} to collection`);
   } else {
-    console.log("Already part of your favorites");
+    console.log(`${gem.name} is already one of your favorites`);
   }
 
-  //Save gem array to local storage
+  setGems(gems);
+}
+
+//Save gem array to local storage
+function setGems(gems){
   localStorage.setItem("gems", JSON.stringify(gems));
 }
 
+// Get gems from local storage
 function getGems() {
-  // Get gems from local storage
+
   var gems = JSON.parse(localStorage.getItem("gems") || "[]");
   return gems;
 }
@@ -58,15 +64,35 @@ function getGems() {
 function loadFavorites() {
   var gems = getGems();
   gems.forEach(function(item) {
-    $('.favorite-gems ul').append(`<li class="col-md-4"> <a href=${item.url} target="_blank" >${item.name}</a> </li>`);
+    $('.favorite-gems ul').append(
+      `<li class="col-md-4">
+        <span onclick='removeFave(event,"${item.name}")'>&#x2605</span>
+      <a href=${item.url} target="_blank" >${item.name}</a> </li>`
+    );
   });
   console.log("Favorite gems loaded");
 }
 
 function checkError() {
   var error = $('.error').text();
-  if (error){
-  $('.form-control, .input-group-btn > .btn.btn-default').css({"border-color":"#f55","color": "#f55"});
+  if (error) {
+    $('.form-control, .input-group-btn > .btn.btn-default').css({
+      "border-color": "#f55",
+      "color": "#f55"
+    });
+  }
+
 }
 
+function removeFave(e,gemName) {
+  var gems = getGems();
+  var newGems = gems.filter(function(i) {
+    return i.name != gemName;
+  });
+
+  //remove element from DOM
+  e.target.parentElement.remove();
+
+  setGems(newGems);
+  console.log(newGems);
 }

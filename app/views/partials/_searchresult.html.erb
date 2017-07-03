@@ -1,7 +1,7 @@
 <!-- Gem Name -->
 
 <%= link_to g.name, g.url, target: :_blank, class: "gem-title"%>
-<div class="fave-icon" onclick='addFave("<%= g.name %>","<%= g.url %>")'>
+<div class="fave-icon" onclick='addFave(event, "<%= g.name %>", "<%= g.url %>")'>
   <span>&#x2605</span>
 </div>
 <br>
@@ -24,7 +24,7 @@
   <% else %>
     <% g.dependencies.each do |d| %>
     <li><%= link_to d[:name], d[:url], target: :_blank%>
-      <div class="fave-icon" onclick='addFave("<%= d[:name] %>", "<%= d[:url] %>")'>
+      <div class="fave-icon" onclick='addFave(event, "<%= d[:name] %>", "<%= d[:url] %>")'>
         <span>&#x2605</span>
       </div>
     </li>

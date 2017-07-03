@@ -16,8 +16,7 @@ h1 {
   ul {
     padding-left: 55px;
   }
-  li:before {
-    content: "\2605";
+  li span {
     color: royalblue;
   }
 }
@@ -47,7 +46,7 @@ h1 {
     display: inline;
     cursor: pointer;
     color: gainsboro;
-    &:hover {
+    &:hover, &.fave {
       color: royalblue;
     }
   }
