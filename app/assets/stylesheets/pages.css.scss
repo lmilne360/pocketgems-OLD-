@@ -1,10 +1,17 @@
-.page-container {
-  margin-left: 575px;
+/* Always take up entire screen */
+#page-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.visible #page-wrapper{
+ padding-left: 575px;
 }
 
 .favorite-gems,
 .gem-data {
-  position: relative;
+  position: absolute;
   top: 25em;
   left: 4em;
 
@@ -37,7 +44,7 @@
 }
 
 h1 {
-  position: relative;
+  position: absolute;
   top: 10em;
   left: 4em;
   margin: 0;
@@ -69,6 +76,7 @@ h1 {
   }
 
 }
+
 //Make left border almost transparent
 
 .input-group .input-group-btn > .btn {
