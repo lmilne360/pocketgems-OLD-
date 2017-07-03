@@ -3,24 +3,31 @@
 <%= link_to g.name, g.url, target: :_blank, class: "gem-title"%>
 <div class="fave-icon" onclick='addFave("<%= g.name %>","<%= g.url %>")'>
   <span>&#x2605</span>
-</div> <br> <br>
+</div>
+<br>
+<br>
 
 <!-- INFORMATION -->
 
 <div class="gem-info">
-<p>INFORMATION</p>
+  <p>INFORMATION</p>
   <%= g.info %>
-</div> <br>
+</div>
+<br>
 
 <!-- DEPENDENCIES -->
 
 <div class="gem-dependencies">
   <p>DEPENDENCIES</p>
-  <% g.dependencies.each do |d| %>
-  <li><%= link_to d[:name], d[:url], target: :_blank%>
-    <div class="fave-icon" onclick='addFave("<%= d[:name] %>", "<%= d[:url] %>")'>
-      <span>&#x2605</span>
-    </div>
-  </li>
+  <% if g.dependencies.empty? %>
+      <li>None</li>
+  <% else %>
+    <% g.dependencies.each do |d| %>
+    <li><%= link_to d[:name], d[:url], target: :_blank%>
+      <div class="fave-icon" onclick='addFave("<%= d[:name] %>", "<%= d[:url] %>")'>
+        <span>&#x2605</span>
+      </div>
+    </li>
+    <% end %>
   <% end %>
 </div>

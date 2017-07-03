@@ -13,42 +13,44 @@ h1 {
   position: relative;
   top: 25em;
   left: 4em;
+  ul {
+    padding-left: 55px;
+  }
+  li:before {
+    content: "\2605";
+    color: royalblue;
+  }
 }
+
 .gem-data {
   position: relative;
   top: 27em;
   left: 4em;
+  .gem-info, .gem-dependencies {
+    color: darkgrey;
+    p{
+      color: #333333;
+    }
+  }
 }
 
 .favorite-gems,
 .gem-data {
   li {
-    list-style: none;
     margin-bottom: 5px;
-
+    list-style: none;
     a:hover {
       text-decoration: underline;
     }
   }
-
-  div.fave-icon {
+  .fave-icon {
     display: inline;
     cursor: pointer;
     color: gainsboro;
-
     &:hover {
       color: royalblue;
     }
   }
-}
-
-.favorite-gems ul {
-  padding-left: 55px;
-}
-
-.favorite-gems li:before {
-  content: "\2605";
-  color: royalblue;
 }
 
 .input-group {
@@ -56,7 +58,6 @@ h1 {
   left: 75px;
   width: 50%;
   border-right: 0;
-
   .form-control {
     padding-left: 33px;
     /* stop the glowing blue shadow */
@@ -66,7 +67,6 @@ h1 {
       box-shadow: none;
     }
   }
-
   .btn,
   .form-control {
     height: 70px;
@@ -74,9 +74,16 @@ h1 {
     border-radius: 75px;
   }
 }
-.error {color: #f55;}
-//Make left border almost transparent
 
+.error {
+  position: relative;
+  top: 23em;
+  left: 12em;
+  color: #f55;
+  font-size: 16px;
+}
+
+//Make left border almost transparent
 .input-group .input-group-btn > .btn {
   left: -2px;
   border-left-width: 0;
