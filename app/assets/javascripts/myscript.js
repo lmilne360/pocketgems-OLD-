@@ -3,6 +3,8 @@ $(document).ready(function($) {
 
   if (window.location.pathname == "/favorites") loadFavorites();
 
+  checkError();
+
 });
 
 function selectPage() {
@@ -58,5 +60,13 @@ function loadFavorites() {
   gems.forEach(function(item) {
     $('.favorite-gems ul').append(`<li class="col-md-4"> <a href=${item.url} target="_blank" >${item.name}</a> </li>`);
   });
-  console.log("Favorite gems loaded")
+  console.log("Favorite gems loaded");
+}
+
+function checkError() {
+  var error = $('.error').text();
+  if (error){
+  $('.form-control, .input-group-btn > .btn.btn-default').css({"border-color":"#f55","color": "#f55"});
+}
+
 }

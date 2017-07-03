@@ -1,7 +1,4 @@
-
-
-  <h1>Search Gems</h1>
-
+<h1>Search Gems</h1>
 
 <!-- Search Form -->
 
@@ -17,9 +14,9 @@
 <% end %>
 
 <!-- Not FOund -->
-<% if @gem && @gem ==  nil %>
+<% if @error %>
 <div class="error">
-  <h2> Could Not Be Found</h2>
+  <%= @error %>
 </div>
 <% end %>
 
