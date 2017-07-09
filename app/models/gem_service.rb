@@ -7,20 +7,20 @@ attr_accessor :name, :info, :url, :dependencies
 
 
   def set_attributes(data)
-    @name = data[:name]
-    @info = data[:info]
-    @url = data[:project_uri]
+    @name = data['name']
+    @info = data['info']
+    @url = data['project_uri']
   end
 
 def set_dependencies(data)
   @dependencies = []
-  data[:dependencies][:development].each do |dep|
-    depenency = { name: dep[:name], url: "https://rubygems.org/gems/#{dep[:name]}"}
+  data['dependencies']['development'].each do |dep|
+    depenency = { name: dep['name'], url: "https://rubygems.org/gems/#{dep['name']}"}
     @dependencies << depenency
   end
 
-  data[:dependencies][:runtime].each do |dep|
-    depenency = { name: dep[:name], url: "https://rubygems.org/gems/#{dep[:name]}"}
+  data['dependencies']['runtime'].each do |dep|
+    depenency = { name: dep['name'], url: "https://rubygems.org/gems/#{dep['name']}"}
     @dependencies << depenency
   end
 
